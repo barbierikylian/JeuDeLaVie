@@ -1,19 +1,20 @@
+# Variables
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g
-LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+CXXFLAGS = -Iinclude -Wall -g
+SRC = $(wildcard src/*.cpp)
+OBJ = $(SRC:src/%.cpp=obj/%.o)
+TARGET = bin/jeuDeLaVie
 
-SRCS = main.cpp Console.cpp JeuDeLaVie.cpp Grille.cpp Cellule.cpp Observable.cpp Graphique.cpp GestionFichier.cpp
-OBJS = $(SRCS:.cpp=.o)
+# Règles
+all: $(TARGET)
 
-EXEC = JeuDeLaVie
+$(TARGET): $(OBJ)
+	mkdir -p bin
+	$(CXX) $(OBJ) -o $(TARGET) -lsfml-graphics -lsfml-window -lsfml-system
 
-all: $(EXEC)
-
-$(EXEC): $(OBJS)
-	$(CXX) $(OBJS) -o $(EXEC) $(LDFLAGS)
-
-%.o: %.cpp
+obj/%.o: src/%.cpp
+	mkdir -p obj
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(EXEC)
+	rm -rf obj bin
