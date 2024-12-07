@@ -56,4 +56,12 @@ Pour lancer le Jeu, il faut être dans le dossier "bin". Afin d'y accéder suive
 2. cd bin
 3. ./jeuDeLaVie
 ```
+## **Et si je modifie comment mettre à jour ?**
 
+Ce projet vous permet de modifier les règles ou le comportement du Jeu de la Vie selon vos envies. Pour apporter des modifications, éditez simplement les fichiers source du projet. Une fois vos changements effectués, vous pouvez recompiler et mettre à jour le programme en exécutant la commande suivante :
+
+```bash
+make
+```
+
+---
