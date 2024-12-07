@@ -1,5 +1,6 @@
 # *Projet POO (C++) - Le Jeu de la Vie de Conway*
-https://icones8.fr/icon/12599/github
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
+
 ---
 
 ## **Introduction**
