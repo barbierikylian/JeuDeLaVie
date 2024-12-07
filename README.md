@@ -4,10 +4,10 @@
 
 ## **Introduction**
 
-Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien John Conway. Il simule l'évolution d'une population de cellules vivantes et mortes dans une grille. À chaque étape, l'état de chaque cellule est déterminé par des règles simples basées sur son voisinage immédiat.
+Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien John Conway. Il simule l'évolution d'une population de cellules vivantes et mortes dans une grille. À chaque itération, l'état de chaque cellule est déterminé par des règles simples basées sur son voisinage immédiat.
 
 ### **Règles du Jeu**
-1. Une **cellule morte** (0) ayant **exactement 3 voisines vivantes** (1) devient vivante.
+1. Une **cellule morte** (0) ayant **exactement 3 voisines vivantes** devient vivante (1).
 2. Une **cellule vivante** (1) :
    - Reste vivante si elle a **2 ou 3 voisines vivantes**.
    - Meurt (0) si elle a **moins de 2** ou **plus de 3** voisines vivantes.
@@ -44,11 +44,15 @@ Exemple :
 - resources/ : Données (ex. `etat_initial.txt`)
 - docs/ : Documentation (`README.md`, etc.)
 
-### **Compilation**
+---
+
+## ** Ok mais maintenant comment lancer le JEU ?**
 Pour exécuter le programme, assurez-vous que votre environnement dispose d’un compilateur **C++** et que la bibliothèque **SFML** est installée.
 
-Pour compiler :
+Pour lancer le Jeu:
 
 ```bash
-make
+1. cd jeuDeLaVie
+2. cd bin
+3. ./jeuDeLaVie
 ```
