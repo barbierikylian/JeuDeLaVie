@@ -49,10 +49,11 @@ Exemple :
 ## ** Ok mais maintenant comment lancer le JEU ?**
 Pour exécuter le programme, assurez-vous que votre environnement dispose d’un compilateur **C++** et que la bibliothèque **SFML** est installée.
 
-Pour lancer le Jeu:
+Pour lancer le Jeu, il faut être dans le dossier "bin". Afin d'y accéder suivez les étapes indiquées:
 
 ```bash
 1. cd jeuDeLaVie
 2. cd bin
 3. ./jeuDeLaVie
 ```
+
