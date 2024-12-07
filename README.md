@@ -1,5 +1,5 @@
 # *Projet POO (C++) - Le Jeu de la Vie de Conway*
-
+![c++](https://img.shields.io/badge/c++-gray?style=flat)
 ---
 
 ## **Introduction**
