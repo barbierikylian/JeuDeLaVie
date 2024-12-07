@@ -1,7 +1,6 @@
 # *Projet POO (C++) - Le Jeu de la Vie de Conway*
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
 ![SFML](https://img.shields.io/badge/SFML-008080?style=flat-square&logo=sfml&logoColor=white)
-![Jeu de la Vie](https://img.shields.io/badge/Jeu%20de%20la%20Vie-000000?style=flat-square&logo=game&logoColor=white)
 ![POO](https://img.shields.io/badge/POO-Programmation%20Orienter%20Objet-blue?style=flat-square&logo=code&logoColor=white)
 
 
