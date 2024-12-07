@@ -46,7 +46,7 @@ Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien Joh
 
 ---
 
-## **Ok mais maintenant comment lancer le JEU ?**
+## **Ok mais maintenant comment lancer le Jeu ?**
 Pour exécuter le programme, assurez-vous que votre environnement dispose d’un compilateur **C++** et que la bibliothèque **SFML** est installée.
 
 Pour lancer le Jeu, il faut être dans le dossier "bin". Afin d'y accéder suivez les étapes indiquées :
@@ -59,7 +59,7 @@ Pour lancer le Jeu, il faut être dans le dossier "bin". Afin d'y accéder suive
 ---
 
 
-## **Si tu modifies comment mettre à jour le JEU ?**
+## **Si tu modifies comment mettre à jour le Jeu ?**
 
 Ce projet vous permet de modifier les règles ou le comportement du Jeu de la Vie selon vos envies. Pour apporter des modifications, éditez simplement les fichiers source du projet. Une fois vos changements effectués, vous pouvez recompiler et mettre à jour le programme en exécutant la commande suivante :
 
