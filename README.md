@@ -30,11 +30,6 @@ Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien Joh
 
 ---
 
-Exemple :
-
-![image](https://github.com/user-attachments/assets/3af71cec-c9f2-4148-bb3b-667a90ee79b1)
-
-
 ## **Organisation des fichiers du Jeu**
 
 - src/ : Fichiers sources (.cpp)
