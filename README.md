@@ -16,29 +16,33 @@ Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien Joh
 
 ## **Fonctionnalités du Programme**
 
-1. **Simulation Console :**
-   - Lit un fichier texte d’entrée décrivant la grille initiale (taille et état des cellules).
-   - L'utilisateur a le contrôle de l'évolution de la population car il a la possibilité de choisir le nombre d’itérations.
+1. **Lancement du jeu**
+   - Upload le fichier ".txt" contenant la grille avec les cellules afin d'initialiser le jeu. 
+   - Choix du mode de fonctionnement (Console / Graphique) 
+
+2. **Affichage Console :**
+   - Contrôle de l'évolution de la population car il a la possibilité de choisir le nombre d’itérations.
    - Sauvegarde les états après chaques itérations dans un fichier de sortie.
 
-2. **Simulation Graphique :**
+3. **Affichage Graphique :**
    - Affiche l’évolution des cellules dans une fenêtre graphique.
    - La durée entre deux itérations est ajustable.
 
 ---
-
-## **Format d'Entrée**
-
-Le programme consomme un fichier texte contenant :
-- **Taille de la grille** : `hauteur largeur` (par ex. `5 10`).
-- **Grille initiale** : Une matrice de `0` (mort) et `1` (vivant).
 
 Exemple :
 
 ![image](https://github.com/user-attachments/assets/3af71cec-c9f2-4148-bb3b-667a90ee79b1)
 
 
-## **Utilisation**
+## **Organisation des fichiers du Jeu**
+
+- src/ : Fichiers sources (.cpp)
+- include/ : Fichiers d'en-tête (.h)
+- obj/ : Fichiers objets (.o)
+- bin/ : Exécutable final (`jeuDeLaVie`)
+- resources/ : Données (ex. `etat_initial.txt`)
+- docs/ : Documentation (`README.md`, etc.)
 
 ### **Compilation**
 Pour exécuter le programme, assurez-vous que votre environnement dispose d’un compilateur **C++** et que la bibliothèque **SFML** est installée.
