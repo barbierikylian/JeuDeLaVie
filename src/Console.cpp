@@ -9,7 +9,7 @@ Console::Console(JeuDeLaVie& jeu) : jeu(jeu) {}
 
 // Méthode pour lancer le mode console
 void Console::lancer() {
-    std::string cheminFichier = "etat_initial.txt"; 
+    std::string cheminFichier = "../resources/etat_initial.txt"; 
 
     int lignes, colonnes;
     if (!lireDimensions(cheminFichier, lignes, colonnes)) {
