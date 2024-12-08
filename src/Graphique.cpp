@@ -30,7 +30,7 @@ void Graphique::lancer() {
     // Création de la fenêtre de 800x800 pixels
     sf::RenderWindow fenetre(sf::VideoMode(800, 800), "Jeu de la Vie");
 
-    // Définir la vue initiale pour correspondre à la grille
+    // Vue définie avec (0, 0) comme coin haut-gauche, largeur = colonnes * tailleCellule, hauteur = lignes * tailleCellule.
     sf::View vue(sf::FloatRect(0, 0, colonnes * tailleCellule, lignes * tailleCellule));
     fenetre.setView(vue);
 
