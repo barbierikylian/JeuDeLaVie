@@ -4,6 +4,9 @@
 #include <thread>
 #include <chrono>
 
+
+extern std::string cheminFichier;
+
 Graphique::Graphique(JeuDeLaVie& jeu) : jeu(jeu) {}
 
 bool Graphique::chargerEtatInitial(const std::string& cheminFichier) {
@@ -63,7 +66,7 @@ void Graphique::lancer() {
                 }
                 // Appuyer sur "R" pour réinitialiser la simulation
                 else if (evenement.key.code == sf::Keyboard::R) {
-                    jeu.EtatInitial("etat_initial.txt"); // Réinitialise l'état initial de la grille
+                    jeu.EtatInitial(cheminFichier); // Réinitialise l'état initial de la grille
                     std::cout << "Simulation réinitialisée.\n";
                     iteration = 0; // Réinitialiser le compteur d'itérations
                 }

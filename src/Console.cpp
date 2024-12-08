@@ -2,14 +2,13 @@
 #include <iostream>
 #include <fstream>
 
-
+extern std::string cheminFichier;
 
 // Constructeur
 Console::Console(JeuDeLaVie& jeu) : jeu(jeu) {}
 
 // Méthode pour lancer le mode console
 void Console::lancer() {
-    std::string cheminFichier = "../resources/etat_initial.txt"; 
 
     int lignes, colonnes;
     if (!lireDimensions(cheminFichier, lignes, colonnes)) {

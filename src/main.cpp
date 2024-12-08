@@ -6,14 +6,12 @@
 #include "Graphique.h"
 #include <fstream>
 
-
+std::string cheminFichier;
 
 int main() {
-
-    std::string cheminFichier;
     std::cout << "Entrez le chemin du fichier contenant l'état initial : ";
     std::cin >> cheminFichier;
-    
+
     std::cout << "Choisissez le mode :\n";
     std::cout << "1. Mode Console\n";
     std::cout << "2. Mode Graphique\n";
