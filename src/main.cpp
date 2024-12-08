@@ -13,8 +13,8 @@ int main() {
     std::cin >> cheminFichier;
 
     std::cout << "Choisissez le mode :\n";
-    std::cout << "1. Mode Console\n";
-    std::cout << "2. Mode Graphique\n";
+    std::cout << "1 pour entrer dans le Mode Console\n";
+    std::cout << "2 pour entrer dans le Mode Graphique\n";
 
     int choix;
     std::cin >> choix; 
