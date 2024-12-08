@@ -30,11 +30,13 @@ Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien Joh
 
 ### **2. Mode Console 💻**  
 - Contrôle manuel : saisissez le nombre d'itérations souhaitées.  
-- Sauvegarde automatique : chaque état est sauvegardé dans un fichier de sortie.  
+- Sauvegarde automatique : chaque état est sauvegardé dans un fichier de sortie, regroupé dans un dossier.  
 
 ### **3. Mode Graphique 🖥️**  
 - Affichage en temps réel de l'évolution de la population dans une fenêtre graphique.  
-- Ajustez la durée entre deux itérations. 
+- Ajustez la durée entre deux itérations à l'aide des fléches du clavier.
+- Mettre en pause le jeu à l'aide de la barre espace.
+- Réinitialiser le jeu avec la touche "R" du clavier
 
 ---
 
@@ -50,13 +52,13 @@ jeuDeLaVie/
 └── docs/        # Documentation (ex. `README.md`)  
 ```
 
-# Installation et Exécution ⚡
+## Installation et Exécution ⚡
 
-## Pré-requis ⚙️
-- Compilateur C++ (compatible avec C++11 ou supérieur).
+### Pré-requis ⚙️
+- Compilateur C++ (compatible avec C++17 ou supérieur).
 - Bibliothèque SFML (version 2.5 ou plus récente).
 
-## Étapes pour lancer le jeu 🎮
+### Étapes pour lancer le jeu 🎮
 
 1. Clonez le dépôt ou téléchargez les fichiers.
     ```bash
@@ -75,7 +77,7 @@ jeuDeLaVie/
     ./jeuDeLaVie
     ```
 
-## Modification et Recompilation 🔄
+### Modification et Recompilation 🔄
 
 Pour apporter des modifications au projet (par exemple, personnaliser les règles) :
 
@@ -87,7 +89,7 @@ Pour apporter des modifications au projet (par exemple, personnaliser les règle
     make
     ```
 
-## Crédits 🙏
+### Crédits 🙏
 
 - Auteur : Kylian et Mattéo CPI A2
 - Bibliothèques : SFML
