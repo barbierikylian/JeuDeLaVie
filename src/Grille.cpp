@@ -2,29 +2,21 @@
 
 
 
-Grille::Grille(int nbLignes, int nbColonnes) : lignes(nbLignes), colonnes(nbColonnes) {
+Grille::Grille(int nbLignes, int nbColonnes)
+    : lignes(nbLignes), colonnes(nbColonnes) {
     // Vérification des dimensions de la grille
-    // Si le nombre de lignes ou de colonnes est <= 0, la grille est invalide
     if (lignes <= 0 || colonnes <= 0) {
-        std::cout << "Dimensions de la grille invalides.";
+        std::cerr << "Dimensions de la grille invalides.\n";
+        return;
     }
 
-    // Allocation dynamique d'un tableau de pointeurs pour les lignes
-    cellules = new Cellule*[lignes];
-    
-    // Parcourir chaque ligne
+    // Initialisation du tableau 2D avec std::vector
+    cellules = std::vector<std::vector<Cellule>>(lignes, std::vector<Cellule>(colonnes));
+
+    // Ajout de la grille comme observateur à chaque cellule (si nécessaire)
     for (int i = 0; i < lignes; i++) {
-        // Pour chaque ligne, créer un tableau de cellules
-        cellules[i] = new Cellule[colonnes];
-        
-        // Parcourir chaque colonne dans la ligne
-        for (int j = 0; j < colonnes; ++j) {
-            // Initialisation de chaque cellule (si nécessaire avec `new`, cela dépend de l'implémentation)
-            cellules[i][j] = new Cellule();
-            
-            // Ajout de la grille (this) comme observateur de chaque cellule
-            // Cela permet à la grille de réagir aux changements dans les cellules
-            cellules[i][j].ajouterObservateur(this);
+        for (int j = 0; j < colonnes; j++) {
+            cellules[i][j].ajouterObservateur(this); // Ajoute `this` comme observateur
         }
     }
 }
@@ -32,10 +24,7 @@ Grille::Grille(int nbLignes, int nbColonnes) : lignes(nbLignes), colonnes(nbColo
 
 
 Grille::~Grille() {
-    for (int i = 0; i < lignes; ++i) {
-        delete[] cellules[i]; // Supprime chaque ligne
-    }
-    delete[] cellules; // Supprime le tableau de lignes
+    cellules.clear(); 
 }
 
 
@@ -88,19 +77,17 @@ int Grille::compterVoisinsVivants(int x, int y) const {
         int nx = x + directions[i][0];
         int ny = y + directions[i][1];
 
-        // Validation des indices
+        // Validation stricte des indices
         if (nx >= 0 && nx < lignes && ny >= 0 && ny < colonnes) {
             if (cellules[nx][ny].estVivante()) {
                 total++;
             }
-        } else {
-            // Indice hors limite
-            // std::cerr << "Indice voisin hors limites (" << nx << ", " << ny << ").\n";
         }
     }
 
     return total;
 }
+
 
 
 void Grille::afficherGrille() const {
@@ -116,12 +103,20 @@ void Grille::afficherGrille() const {
     }
 }
 
-Cellule* Grille::getCellule(int i, int j) const{
-    if (i >= 0 && i < lignes && j >= 0 && j < colonnes) {
-        return &cellules[i][j];  
+Cellule& Grille::getCellule(int i, int j) {
+    if (i < 0 || i >= lignes || j < 0 || j >= colonnes) {
+        throw std::out_of_range("Indices hors limites dans Grille::getCellule.");
     }
-    return nullptr;  
+    return cellules[i][j];
 }
+
+const Cellule& Grille::getCellule(int i, int j) const {
+    if (i < 0 || i >= lignes || j < 0 || j >= colonnes) {
+        throw std::out_of_range("Indices hors limites dans Grille::getCellule.");
+    }
+    return cellules[i][j];
+}
+
 int Grille::getLignes() const{
     return lignes;
 }

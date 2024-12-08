@@ -4,12 +4,12 @@
 #include "Cellule.h"
 #include "Observateur.h"
 #include <iostream>
+#include <vector>
 
 class Grille : public Observateur {
 private:
     int lignes, colonnes;
-    Cellule** cellules;
-
+    std::vector<std::vector<Cellule>> cellules;
 public:
     Grille(int nbLignes, int nbColonnes);
     ~Grille();
@@ -19,7 +19,8 @@ public:
     void actualiserEtats();
     int compterVoisinsVivants(int x, int y) const;
     void afficherGrille() const;
-    Cellule* getCellule(int i, int j) const;
+    Cellule& getCellule(int i, int j) ;
+    const Cellule& getCellule(int i, int j) const;
     int getLignes() const;
     int getColonnes() const;
 };

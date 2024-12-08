@@ -22,8 +22,8 @@ bool Graphique::chargerEtatInitial(const std::string& cheminFichier) {
 
 void Graphique::lancer() {
     int tailleCellule = 10; // Taille d'une cellule en pixels
-    int lignes = jeu.getGrille()->getLignes(); // Nombre de lignes de la grille
-    int colonnes = jeu.getGrille()->getColonnes(); // Nombre de colonnes de la grille
+    int lignes = jeu.getGrille().getLignes(); // Nombre de lignes de la grille
+    int colonnes = jeu.getGrille().getColonnes(); // Nombre de colonnes de la grille
     int delai = 500; // Délai entre chaque étape en millisecondes
     bool enPause = false; // Indique si la simulation est en pause
 
@@ -94,8 +94,8 @@ void Graphique::lancer() {
 
         // Si la simulation n'est pas en pause
         if (!enPause) {
-            jeu.getGrille()->calculerProchainsEtats(); // Calculer les prochains états de la grille
-            jeu.getGrille()->actualiserEtats(); // Mettre à jour les états actuels
+            jeu.getGrille().calculerProchainsEtats(); // Calculer les prochains états de la grille
+            jeu.getGrille().actualiserEtats(); // Mettre à jour les états actuels
             iteration++; // Incrémenter le compteur d'itérations
         }
 
@@ -109,8 +109,8 @@ void Graphique::lancer() {
 
 void Graphique::afficherGrille(sf::RenderWindow& fenetre, int tailleCellule) {
     // Récupérer le nombre de lignes et de colonnes de la grille
-    int lignes = jeu.getGrille()->getLignes();
-    int colonnes = jeu.getGrille()->getColonnes();
+    int lignes = jeu.getGrille().getLignes();
+    int colonnes = jeu.getGrille().getColonnes();
 
     // Affichage d'informations dans la console (debugging)
     std::cout << "Affichage de la grille : " << lignes << " x " << colonnes << std::endl;
@@ -118,6 +118,7 @@ void Graphique::afficherGrille(sf::RenderWindow& fenetre, int tailleCellule) {
     // Parcourir chaque cellule de la grille
     for (int i = 0; i < lignes; i++) {
         for (int j = 0; j < colonnes; j++) {
+            if (i < 0 || i >= lignes || j < 0 || j >= colonnes) continue;
             // Créer un rectangle pour représenter une cellule
             // La taille est légèrement réduite (tailleCellule - 1) pour créer une séparation visuelle entre les cellules
             sf::RectangleShape cellule(sf::Vector2f(tailleCellule - 1, tailleCellule - 1));
@@ -126,7 +127,7 @@ void Graphique::afficherGrille(sf::RenderWindow& fenetre, int tailleCellule) {
             cellule.setPosition(j * tailleCellule, i * tailleCellule);
 
             // Définir la couleur de la cellule en fonction de son état (vivante ou morte)
-            if (jeu.getGrille()->getCellule(i, j)->estVivante()) {
+            if (jeu.getGrille().getCellule(i, j).estVivante()) {
                 cellule.setFillColor(sf::Color::White); // Cellule vivante = blanc
                 std::cout << "Cellule vivante à (" << i << ", " << j << ")\n"; // Debugging
             } else {

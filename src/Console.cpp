@@ -24,9 +24,7 @@ void Console::lancer() {
         return;
     }
 
-    // Reconfigurer JeuDeLaVie avec les nouvelles dimensions et itérations
-    JeuDeLaVie nouveauJeu(lignes, colonnes, iterMax);
-    jeu = nouveauJeu;
+    jeu = JeuDeLaVie(lignes, colonnes, iterMax);
 
     if (!jeu.EtatInitial(cheminFichier)) {
         std::cerr << "Erreur : impossible de charger l'état initial.\n";

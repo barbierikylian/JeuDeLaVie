@@ -6,7 +6,7 @@
 
 class JeuDeLaVie  {
 private:
-    Grille* grille;
+    Grille grille;
     int iterationsMax;
 
 public:
@@ -17,7 +17,7 @@ public:
     void executer();
     void afficher();
     void sauvegarderEtat(const std::string& cheminFichier, int iteration); // Nouvelle méthode
-    Grille* getGrille();
+    Grille& getGrille();
 };
 
 #endif
