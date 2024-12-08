@@ -7,19 +7,24 @@
 
 extern std::string cheminFichier;
 
+// Constructeur : initialise le graphique avec une référence au jeu
 Graphique::Graphique(JeuDeLaVie& jeu) : jeu(jeu) {}
 
+// Charge l'état initial du jeu à partir d'un fichier et affiche le résultat
 bool Graphique::chargerEtatInitial(const std::string& cheminFichier) {
     std::cout << "Chargement de l'état initial depuis : " << cheminFichier << "\n";
-    bool result = jeu.EtatInitial(cheminFichier);
+    bool result = jeu.EtatInitial(cheminFichier); // Appelle la méthode pour charger l'état initial
+    
     if (result) {
-        std::cout << "État initial chargé avec succès.\n";
+        std::cout << "État initial chargé avec succès.\n"; // Succès du chargement
     } else {
-        std::cerr << "Erreur : Impossible de charger l'état initial.\n";
+        std::cerr << "Erreur : Impossible de charger l'état initial.\n"; // Échec du chargement
     }
-    return result;
+
+    return result; // Retourne le résultat de l'opération
 }
 
+// Lancer le mode graphique
 void Graphique::lancer() {
     int tailleCellule = 10; // Taille d'une cellule en pixels
     int lignes = jeu.getGrille().getLignes(); // Nombre de lignes de la grille
@@ -30,7 +35,7 @@ void Graphique::lancer() {
     // Création de la fenêtre de 800x800 pixels
     sf::RenderWindow fenetre(sf::VideoMode(800, 800), "Jeu de la Vie");
 
-    // Vue définie avec (0, 0) comme coin haut-gauche, largeur = colonnes * tailleCellule, hauteur = lignes * tailleCellule.
+    // Vue définie avec (0, 0) comme coin haut-gauche, largeur = colonnes * tailleCellule, hauteur = lignes * tailleCellule
     sf::View vue(sf::FloatRect(0, 0, colonnes * tailleCellule, lignes * tailleCellule));
     fenetre.setView(vue);
 
@@ -106,7 +111,7 @@ void Graphique::lancer() {
 
 
 
-
+// Afficher la grille
 void Graphique::afficherGrille(sf::RenderWindow& fenetre, int tailleCellule) {
     // Récupérer le nombre de lignes et de colonnes de la grille
     int lignes = jeu.getGrille().getLignes();
