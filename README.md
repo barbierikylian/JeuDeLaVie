@@ -50,25 +50,47 @@ jeuDeLaVie/
 └── docs/        # Documentation (ex. `README.md`)  
 ```
 
-## **Installation et Exécution**  
+# Installation et Exécution
 
-### **Pré-requis**  
-Avant de pouvoir exécuter le programme, assurez-vous que vous avez les pré-requis suivants installés sur votre machine :
+## Pré-requis
+- Compilateur C++ (compatible avec C++11 ou supérieur).
+- Bibliothèque SFML (version 2.5 ou plus récente).
 
-1. **Compilateur C++** (compatible avec C++11 ou supérieur).  
-2. **Bibliothèque SFML** (version 2.5 ou plus récente).
+## Étapes pour lancer le jeu
 
----
+1. Clonez le dépôt ou téléchargez les fichiers.
+    ```bash
+    git clone https://github.com/votre-depot/jeuDeLaVie.git  
+    cd jeuDeLaVie
+    ```
 
-### **Étapes pour lancer le jeu**  
+2. Compilez le programme (si non précompilé).
+    ```bash
+    make
+    ```
 
-Suivez les étapes ci-dessous pour installer et lancer le jeu :
+3. Lancez l'exécutable depuis le dossier `bin`.
+    ```bash
+    cd bin  
+    ./jeuDeLaVie
+    ```
 
-1. **Clonez le dépôt ou téléchargez les fichiers**  
-   Si vous avez **git** installé, vous pouvez cloner le dépôt avec la commande suivante :
-   ```bash
-   git clone https://github.com/votre-depot/jeuDeLaVie.git  
-   cd jeuDeLaVie
----
+# Modification et Recompilation
+
+Pour apporter des modifications au projet (par exemple, personnaliser les règles) :
+
+1. Éditez les fichiers sources dans le dossier `src/` ou les fichiers d'en-tête dans `include/`.
+
+2. Recompilez le programme en exécutant :
+    ```bash
+    make clean  
+    make
+    ```
+## Crédits
+
+- **Auteur** : Kylian et Mattéo CPI A2
+- **Bibliothèques** :
+  - SFML
+- **Inspiré par le travail du mathématicien** : John Conway
 
 
