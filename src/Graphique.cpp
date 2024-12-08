@@ -118,7 +118,7 @@ void Graphique::afficherGrille(sf::RenderWindow& fenetre, int tailleCellule) {
     // Parcourir chaque cellule de la grille
     for (int i = 0; i < lignes; i++) {
         for (int j = 0; j < colonnes; j++) {
-            if (i < 0 || i >= lignes || j < 0 || j >= colonnes) continue;
+            if (i < 0 || i >= lignes || j < 0 || j >= colonnes) continue; // Passe à l'itération suivante si i ou j est hors des limites
             // Créer un rectangle pour représenter une cellule
             // La taille est légèrement réduite (tailleCellule - 1) pour créer une séparation visuelle entre les cellules
             sf::RectangleShape cellule(sf::Vector2f(tailleCellule - 1, tailleCellule - 1));
