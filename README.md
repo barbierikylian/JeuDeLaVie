@@ -34,7 +34,7 @@ Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien Joh
 
 ### **3. Mode Graphique 🖥️**  
 - Affichage en temps réel de l'évolution de la population dans une fenêtre graphique.  
-- Ajustez la durée entre deux itérations directement dans le programme.  
+- Ajustez la durée entre deux itérations. 
 
 ---
 
