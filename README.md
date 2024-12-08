@@ -1,68 +1,73 @@
-# *Projet POO (C++) - Le Jeu de la Vie de Conway*
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
-![SFML](https://img.shields.io/badge/SFML-008080?style=flat-square&logo=sfml&logoColor=white)
-![POO](https://img.shields.io/badge/POO-Programmation%20Orientée%20Objet-blue?style=flat-square&logo=code&logoColor=white)
-
-
+# **Projet POO (C++) - Le Jeu de la Vie de Conway**  
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)  
+![SFML](https://img.shields.io/badge/SFML-008080?style=flat-square&logo=sfml&logoColor=white)  
+![POO](https://img.shields.io/badge/POO-Programmation%20Orientée%20Objet-blue?style=flat-square&logo=code&logoColor=white)  
 
 ---
 
-## **Introduction**
-
-Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien John Conway. Il simule l'évolution d'une population de cellules vivantes et mortes dans une grille. À chaque itération, l'état de chaque cellule est déterminé par des règles simples basées sur son voisinage immédiat.
-
-### **Règles du Jeu**
-1. Une **cellule morte** (0) ayant **exactement 3 voisines vivantes** devient vivante (1).
-2. Une **cellule vivante** (1) :
-   - Reste vivante si elle a **2 ou 3 voisines vivantes**.
-   - Meurt (0) si elle a **moins de 2** ou **plus de 3** voisines vivantes.
+## **Introduction**  
+Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien John Conway. Il simule l'évolution d'une population de cellules vivantes et mortes dans une grille. Ce projet repose sur la **programmation orientée objet (POO)** et utilise **SFML** pour l'affichage graphique.  
 
 ---
 
-## **Fonctionnalités du Programme**
+### **Règles du Jeu**  
 
-1. **Lancement du jeu**
-   - Upload le fichier ".txt" contenant la grille avec les cellules afin d'initialiser le jeu. 
-   - Choix du mode de fonctionnement (Console / Graphique) 
-
-2. **Affichage Console :**
-   - Contrôle de l'évolution de la population car il a la possibilité de choisir le nombre d’itérations.
-   - Sauvegarde les états après chaques itérations dans un fichier de sortie.
-
-3. **Affichage Graphique :**
-   - Affiche l’évolution des cellules dans une fenêtre graphique.
-   - La durée entre deux itérations est ajustable.
+1. **Cellule morte (0)** :  
+   - Devient vivante (1) si elle a exactement **3 voisines vivantes**.  
+2. **Cellule vivante (1)** :  
+   - **Reste vivante** si elle a **2 ou 3 voisines vivantes**.  
+   - **Meurt** (devient 0) si elle a moins de **2** ou plus de **3** voisines vivantes.  
 
 ---
 
-## **Organisation des fichiers du Jeu**
+## **Fonctionnalités**  
 
-- src/ : Fichiers sources (.cpp)
-- include/ : Fichiers d'en-tête (.h)
-- obj/ : Fichiers objets (.o)
-- bin/ : Exécutable final (`jeuDeLaVie`)
-- resources/ : Données (ex. `etat_initial.txt`)
-- docs/ : Documentation (`README.md`, etc.)
+### **1. Initialisation**  
+- Chargement d'un fichier texte (`.txt`) contenant la grille initiale.  
+- Choix entre deux modes :  
+  - **Mode console**  
+  - **Mode graphique**  
+
+### **2. Mode Console**  
+- Contrôle manuel : saisissez le nombre d'itérations souhaitées.  
+- Sauvegarde automatique : chaque état est sauvegardé dans un fichier de sortie.  
+
+### **3. Mode Graphique**  
+- Affichage en temps réel de l'évolution de la population dans une fenêtre graphique.  
+- Ajustez la durée entre deux itérations directement dans le programme.  
 
 ---
 
-## **Ok mais maintenant comment lancer le Jeu ?**
-Pour exécuter le programme, assurez-vous que votre environnement dispose d’un compilateur **C++** et que la bibliothèque **SFML** est installée.
+## **Structure des fichiers**  
 
-Pour lancer le Jeu, il faut être dans le dossier "bin". Afin d'y accéder suivez les étapes indiquées :
+```plaintext
+jeuDeLaVie/  
+├── src/         # Fichiers sources (.cpp)  
+├── include/     # Fichiers d'en-tête (.h)  
+├── obj/         # Fichiers objets (.o)  
+├── bin/         # Exécutable final (`jeuDeLaVie`)  
+├── resources/   # Données initiales (ex. `etat_initial.txt`)  
+└── docs/        # Documentation (ex. `README.md`)  
 
-```bash
-1. cd jeuDeLaVie
-2. cd bin
-3. ./jeuDeLaVie
-```
+## **Installation et Exécution**  
+
+### **Pré-requis**  
+Avant de pouvoir exécuter le programme, assurez-vous que vous avez les pré-requis suivants installés sur votre machine :
+
+1. **Compilateur C++** (compatible avec C++11 ou supérieur).  
+2. **Bibliothèque SFML** (version 2.5 ou plus récente).
+
+---
+
+### **Étapes pour lancer le jeu**  
+
+Suivez les étapes ci-dessous pour installer et lancer le jeu :
+
+1. **Clonez le dépôt ou téléchargez les fichiers**  
+   Si vous avez **git** installé, vous pouvez cloner le dépôt avec la commande suivante :
+   ```bash
+   git clone https://github.com/votre-depot/jeuDeLaVie.git  
+   cd jeuDeLaVie
 ---
 
 
-## **Si tu modifies comment mettre à jour le Jeu ?**
-
-Ce projet vous permet de modifier les règles ou le comportement du Jeu de la Vie selon vos envies. Pour apporter des modifications, éditez simplement les fichiers source du projet. Une fois vos changements effectués, vous pouvez recompiler et mettre à jour le programme en exécutant la commande suivante :
-
-```bash
-make
-```
