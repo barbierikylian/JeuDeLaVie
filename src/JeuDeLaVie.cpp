@@ -60,7 +60,7 @@ void JeuDeLaVie::executer() {
         std::cout << "Itération : " << iter << std::endl;
         grille.afficherGrille();
 
-        sauvegarderEtat(fichierSauvegarde, iter + 1);
+        sauvegarderEtat(fichierSauvegarde, iter);
         grille.calculerProchainsEtats();
         grille.actualiserEtats();
     }
