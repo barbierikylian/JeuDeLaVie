@@ -9,16 +9,17 @@
 
 
 int main() {
+
+    std::string cheminFichier;
+    std::cout << "Entrez le chemin du fichier contenant l'état initial : ";
+    std::cin >> cheminFichier;
+    
     std::cout << "Choisissez le mode :\n";
     std::cout << "1. Mode Console\n";
     std::cout << "2. Mode Graphique\n";
 
     int choix;
     std::cin >> choix; 
-
-    std::string cheminFichier;
-    std::cout << "Entrez le chemin du fichier contenant l'état initial : ";
-    std::cin >> cheminFichier;
 
     int lignes = 0, colonnes = 0, iterMax = 100;
 
