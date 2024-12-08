@@ -16,7 +16,10 @@ int main() {
     int choix;
     std::cin >> choix; 
 
-    std::string cheminFichier = "../resources/etat_initial.txt"; // Chemin par défaut du fichier d'état initial
+    std::string cheminFichier;
+    std::cout << "Entrez le chemin du fichier contenant l'état initial : ";
+    std::cin >> cheminFichier;
+
     int lignes = 0, colonnes = 0, iterMax = 100;
 
     if (!lireDimensions(cheminFichier, lignes, colonnes)) {
