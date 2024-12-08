@@ -5,12 +5,12 @@
 
 ---
 
-## **Introduction**  
+## **Introduction 🌱**  
 Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien John Conway. Il simule l'évolution d'une population de cellules vivantes et mortes dans une grille. Ce projet repose sur la **programmation orientée objet (POO)** et utilise **SFML** pour l'affichage graphique.  
 
 ---
 
-### **Règles du Jeu**  
+### **Règles du Jeu 📝**  
 
 1. **Cellule morte (0)** :  
    - Devient vivante (1) si elle a exactement **3 voisines vivantes**.  
@@ -20,25 +20,25 @@ Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien Joh
 
 ---
 
-## **Fonctionnalités**  
+## **Fonctionnalités ⚙️**  
 
-### **1. Initialisation**  
+### **1. Initialisation 🛠️**  
 - Chargement d'un fichier texte (`.txt`) contenant la grille initiale.  
 - Choix entre deux modes :  
   - **Mode console**  
   - **Mode graphique**  
 
-### **2. Mode Console**  
+### **2. Mode Console 💻**  
 - Contrôle manuel : saisissez le nombre d'itérations souhaitées.  
 - Sauvegarde automatique : chaque état est sauvegardé dans un fichier de sortie.  
 
-### **3. Mode Graphique**  
+### **3. Mode Graphique 🖥️**  
 - Affichage en temps réel de l'évolution de la population dans une fenêtre graphique.  
 - Ajustez la durée entre deux itérations directement dans le programme.  
 
 ---
 
-## **Structure des fichiers**  
+## **Structure des fichiers 📁**  
 
 ```plaintext
 jeuDeLaVie/  
@@ -50,13 +50,13 @@ jeuDeLaVie/
 └── docs/        # Documentation (ex. `README.md`)  
 ```
 
-# Installation et Exécution
+# Installation et Exécution ⚡
 
-## Pré-requis
+## Pré-requis ⚙️
 - Compilateur C++ (compatible avec C++11 ou supérieur).
 - Bibliothèque SFML (version 2.5 ou plus récente).
 
-## Étapes pour lancer le jeu
+## Étapes pour lancer le jeu 🎮
 
 1. Clonez le dépôt ou téléchargez les fichiers.
     ```bash
@@ -75,7 +75,7 @@ jeuDeLaVie/
     ./jeuDeLaVie
     ```
 
-# Modification et Recompilation
+## Modification et Recompilation 🔄
 
 Pour apporter des modifications au projet (par exemple, personnaliser les règles) :
 
@@ -86,11 +86,12 @@ Pour apporter des modifications au projet (par exemple, personnaliser les règle
     make clean  
     make
     ```
-## Crédits
 
-- **Auteur** : Kylian et Mattéo CPI A2
-- **Bibliothèques** :
-  - SFML
-- **Inspiré par le travail du mathématicien** : John Conway
+## Crédits 🙏
+
+- Auteur : Kylian et Mattéo CPI A2
+- Bibliothèques : SFML
+- Inspiré par le travail du mathématicien : John Conway
+
 
 
