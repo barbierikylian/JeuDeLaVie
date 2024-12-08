@@ -48,6 +48,7 @@ jeuDeLaVie/
 ├── bin/         # Exécutable final (`jeuDeLaVie`)  
 ├── resources/   # Données initiales (ex. `etat_initial.txt`)  
 └── docs/        # Documentation (ex. `README.md`)  
+```
 
 ## **Installation et Exécution**  
 
