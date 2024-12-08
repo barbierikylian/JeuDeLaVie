@@ -6,7 +6,7 @@
 ---
 
 ## **Introduction 🌱**  
-Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien John Conway. Il simule l'évolution d'une population de cellules vivantes et mortes dans une grille. Ce projet repose sur la **programmation orientée objet (POO)** et utilise **SFML** pour l'affichage graphique.  
+Le **jeu de la vie** est un automate cellulaire conçu par le mathématicien John Conway. Il simule l'évolution d'une population de cellules vivantes et mortes dans une grille. Ce projet repose sur la **programmation orientée objet (POO)(C++)** et utilise **SFML** pour l'affichage graphique.  
 
 ---
 
