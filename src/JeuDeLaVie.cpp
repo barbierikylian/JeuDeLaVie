@@ -80,7 +80,6 @@ void JeuDeLaVie::afficher() {
     grille.afficherGrille();
 }
 
-// Sauvegarde l'état actuel de la grille pour une itération donnée dans un fichier spécifique.
 void JeuDeLaVie::sauvegarderEtat(const std::string& nomFichierEntree, int iteration) {
     // Nom du dossier où les états seront sauvegardés
     std::string dossierSortie = nomFichierEntree + "_out";
@@ -98,27 +97,140 @@ void JeuDeLaVie::sauvegarderEtat(const std::string& nomFichierEntree, int iterat
 
     // Ouvre le fichier pour écrire l'état de la grille
     std::ofstream fichier(cheminFichier);
-    if (!fichier) { // Vérifie si l'ouverture du fichier a échoué
+    if (!fichier) {
         std::cerr << "Erreur : impossible d'ouvrir le fichier " << cheminFichier << " pour sauvegarde.\n";
         return;
     }
 
+    // Écrit les dimensions de la grille dans le fichier
+    fichier << grille.getLignes() << " " << grille.getColonnes() << "\n";
+
     // Écrit l'état de la grille dans le fichier
-    fichier << "Iteration " << iteration << ":\n";
     for (int i = 0; i < grille.getLignes(); i++) {
         for (int j = 0; j < grille.getColonnes(); j++) {
             fichier << (grille.getCellule(i, j).estVivante() ? "1 " : "0 "); // État des cellules
         }
         fichier << "\n"; // Passe à la ligne suivante après chaque rangée
     }
-    fichier << "\n"; // Ajoute une ligne vide après la grille
 
     // Message confirmant la sauvegarde
     std::cout << "État de l'itération " << iteration << " sauvegardé dans " << cheminFichier << "\n";
 }
 
+
 // Retourne une référence à la grille associée au jeu
 Grille& JeuDeLaVie::getGrille() {
     return grille;
 }
+bool JeuDeLaVie::chargerEtatDepuisFichier(const std::string& cheminFichier, std::vector<std::vector<bool>>& etatGrille) {
+    std::ifstream fichier(cheminFichier); // Ouvrir le fichier en mode lecture
+    if (!fichier) {
+        std::cerr << "Erreur : impossible d'ouvrir le fichier " << cheminFichier << ".\n";
+        return false;
+    }
+
+    int lignes, colonnes;
+    fichier >> lignes >> colonnes; // Lire les dimensions de la grille
+    std::cout << "Chargement des dimensions du fichier " << cheminFichier << " : " << lignes << " x " << colonnes << "\n";
+
+    if (fichier.fail() || lignes <= 0 || colonnes <= 0) {
+        std::cerr << "Erreur : dimensions invalides dans le fichier " << cheminFichier << ".\n";
+        return false;
+    }
+
+    etatGrille.resize(lignes, std::vector<bool>(colonnes));
+
+    // Lire l'état de chaque cellule
+    for (int i = 0; i < lignes; ++i) {
+        for (int j = 0; j < colonnes; ++j) {
+            int val;
+            fichier >> val; // Lire la valeur de la cellule
+            if (fichier.fail() || (val != 0 && val != 1)) {
+                std::cerr << "Erreur : données invalides dans le fichier à la position (" << i << ", " << j << ").\n";
+                return false;
+            }
+            etatGrille[i][j] = (val == 1); // Convertir en booléen
+        }
+    }
+
+    std::cout << "État chargé depuis le fichier : " << cheminFichier << "\n";
+    return true;
+}
+
+
+void JeuDeLaVie::testerEtatAvecFichier(const std::string& fichierEtat, const std::string& fichierReference) {
+    std::vector<std::vector<bool>> etatSimule;
+    std::vector<std::vector<bool>> etatAttendu;
+
+    // Charger l'état simulé
+    std::cout << "Chargement de l'état simulé depuis : " << fichierEtat << "\n";
+    if (!chargerEtatDepuisFichier(fichierEtat, etatSimule)) {
+        std::cerr << "Erreur : impossible de charger le fichier d'état simulé.\n";
+        return;
+    }
+
+    // Charger l'état attendu
+    std::cout << "Chargement de l'état attendu depuis : " << fichierReference << "\n";
+    if (!chargerEtatDepuisFichier(fichierReference, etatAttendu)) {
+        std::cerr << "Erreur : impossible de charger le fichier de référence.\n";
+        return;
+    }
+
+    // Afficher les dimensions des deux fichiers
+    std::cout << "Dimensions de l'état simulé : " << etatSimule.size() << " x " << etatSimule[0].size() << "\n";
+    std::cout << "Dimensions de l'état attendu : " << etatAttendu.size() << " x " << etatAttendu[0].size() << "\n";
+
+    // Vérifier les dimensions
+    if (etatSimule.size() != etatAttendu.size() || etatSimule[0].size() != etatAttendu[0].size()) {
+        std::cerr << "Erreur : Les dimensions des fichiers ne correspondent pas.\n";
+        return;
+    }
+
+    // Comparer les deux états
+    bool identique = true;
+    for (size_t i = 0; i < etatSimule.size(); ++i) {
+        for (size_t j = 0; j < etatSimule[i].size(); ++j) {
+            if (etatSimule[i][j] != etatAttendu[i][j]) {
+                std::cout << "Différence détectée à la cellule (" << i << ", " << j << ").\n";
+                identique = false;
+            }
+        }
+    }
+
+    if (identique) {
+        std::cout << "Les états sont identiques pour l'itération choisie.\n";
+    } else {
+        std::cout << "Les états sont différents pour l'itération choisie.\n";
+    }
+}
+
+
+void JeuDeLaVie::sauvegarderEtatDansVector(std::vector<std::vector<bool>>& etatGrille) {
+    int lignes = grille.getLignes();
+    int colonnes = grille.getColonnes();
+
+    etatGrille.resize(lignes, std::vector<bool>(colonnes));
+    for (int i = 0; i < lignes; ++i) {
+        for (int j = 0; j < colonnes; ++j) {
+            etatGrille[i][j] = grille.getCellule(i, j).estVivante();
+        }
+    }
+}
+bool JeuDeLaVie::comparerGrilles(const std::vector<std::vector<bool>>& grille1, const std::vector<std::vector<bool>>& grille2) {
+    if (grille1.size() != grille2.size() || grille1[0].size() != grille2[0].size()) {
+        std::cerr << "Erreur : Les dimensions des grilles ne correspondent pas.\n";
+        return false;
+    }
+
+    for (size_t i = 0; i < grille1.size(); ++i) {
+        for (size_t j = 0; j < grille1[i].size(); ++j) {
+            if (grille1[i][j] != grille2[i][j]) {
+                std::cout << "Différence détectée à la cellule (" << i << ", " << j << ").\n";
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 
