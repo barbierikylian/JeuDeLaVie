@@ -110,12 +110,7 @@ Cellule& Grille::getCellule(int i, int j) {
     return cellules[i][j];
 }
 
-const Cellule& Grille::getCellule(int i, int j) const {
-    if (i < 0 || i >= lignes || j < 0 || j >= colonnes) {
-        throw std::out_of_range("Indices hors limites dans Grille::getCellule.");
-    }
-    return cellules[i][j];
-}
+
 
 int Grille::getLignes() const{
     return lignes;

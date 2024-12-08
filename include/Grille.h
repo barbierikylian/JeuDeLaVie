@@ -20,7 +20,6 @@ public:
     int compterVoisinsVivants(int x, int y) const;
     void afficherGrille() const;
     Cellule& getCellule(int i, int j) ;
-    const Cellule& getCellule(int i, int j) const;
     int getLignes() const;
     int getColonnes() const;
 };
