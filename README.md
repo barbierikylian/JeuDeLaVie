@@ -75,7 +75,17 @@ jeuDeLaVie/
     ```bash
     cd bin  
     ./jeuDeLaVie
+
+    Entrez le chemin du fichier contenant l'état initial : ../resources/etat_initial.txt
+    Choisissez le mode :
+            1 pour le Mode Console
+            2 pour le Mode Graphique
     ```
+4. Test Unitaire (Mode Console) 
+   ```bash
+   Voulez-vous comparer une itération spécifique avec un fichier de référence ? (1 = Oui, 0 = Non) : 
+   Entrez le chemin du fichier de référence : ../resources/etat_apres_ite.txt
+   ```
 
 ### Modification et Recompilation 🔄
 
