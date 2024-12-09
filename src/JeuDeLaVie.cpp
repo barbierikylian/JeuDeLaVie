@@ -54,10 +54,6 @@ bool JeuDeLaVie::EtatInitial(const std::string& cheminFichier) {
     return true; // État initial chargé avec succès
 }
 
-
-
-
-
 // Exécute le jeu sur un nombre d'itérations défini, sauvegarde les états et met à jour la grille
 void JeuDeLaVie::executer() {
     std::string fichierSauvegarde = "etat_iterations.txt"; 
@@ -122,7 +118,7 @@ void JeuDeLaVie::sauvegarderEtat(const std::string& nomFichierEntree, int iterat
 Grille& JeuDeLaVie::getGrille() {
     return grille;
 }
-// Charge l'état du jeu de la vie depuis un fichier texte
+// Charge l'état depuis un fichier texte
 bool JeuDeLaVie::chargerEtatDepuisFichier(const std::string& cheminFichier, std::vector<std::vector<bool>>& etatGrille) {
     std::ifstream fichier(cheminFichier); // Ouvre le fichier en mode lecture
     if (!fichier) { // Vérifie si le fichier est ouvert avec succès
