@@ -122,42 +122,49 @@ void JeuDeLaVie::sauvegarderEtat(const std::string& nomFichierEntree, int iterat
 Grille& JeuDeLaVie::getGrille() {
     return grille;
 }
+// Charge l'état du jeu de la vie depuis un fichier texte
 bool JeuDeLaVie::chargerEtatDepuisFichier(const std::string& cheminFichier, std::vector<std::vector<bool>>& etatGrille) {
-    std::ifstream fichier(cheminFichier); // Ouvrir le fichier en mode lecture
-    if (!fichier) {
+    std::ifstream fichier(cheminFichier); // Ouvre le fichier en mode lecture
+    if (!fichier) { // Vérifie si le fichier est ouvert avec succès
         std::cerr << "Erreur : impossible d'ouvrir le fichier " << cheminFichier << ".\n";
-        return false;
+        return false; // Retourne false en cas d'échec
     }
 
     int lignes, colonnes;
-    fichier >> lignes >> colonnes; // Lire les dimensions de la grille
+    fichier >> lignes >> colonnes; // Lit les dimensions de la grille
     std::cout << "Chargement des dimensions du fichier " << cheminFichier << " : " << lignes << " x " << colonnes << "\n";
 
+    // Vérifie si les dimensions sont valides
     if (fichier.fail() || lignes <= 0 || colonnes <= 0) {
         std::cerr << "Erreur : dimensions invalides dans le fichier " << cheminFichier << ".\n";
         return false;
     }
 
+    // Redimensionne la grille en fonction des dimensions lues
     etatGrille.resize(lignes, std::vector<bool>(colonnes));
 
-    // Lire l'état de chaque cellule
+    // Parcourt chaque cellule pour lire son état (0 ou 1)
     for (int i = 0; i < lignes; ++i) {
         for (int j = 0; j < colonnes; ++j) {
             int val;
-            fichier >> val; // Lire la valeur de la cellule
+            fichier >> val; // Lit la valeur de la cellule
+            // Vérifie si la valeur est valide (0 ou 1 uniquement)
             if (fichier.fail() || (val != 0 && val != 1)) {
                 std::cerr << "Erreur : données invalides dans le fichier à la position (" << i << ", " << j << ").\n";
                 return false;
             }
-            etatGrille[i][j] = (val == 1); // Convertir en booléen
+            // Convertit la valeur entière en booléen
+            etatGrille[i][j] = (val == 1);
         }
     }
 
+    // Si tout s'est bien passé, indique que le fichier a été chargé avec succès
     std::cout << "État chargé depuis le fichier : " << cheminFichier << "\n";
     return true;
 }
 
 
+// Compare l'état simulé et l'état attendu à partir de deux fichiers
 void JeuDeLaVie::testerEtatAvecFichier(const std::string& fichierEtat, const std::string& fichierReference) {
     std::vector<std::vector<bool>> etatSimule;
     std::vector<std::vector<bool>> etatAttendu;
@@ -197,6 +204,7 @@ void JeuDeLaVie::testerEtatAvecFichier(const std::string& fichierEtat, const std
         }
     }
 
+    // Afficher le résultat de la comparaison
     if (identique) {
         std::cout << "Les états sont identiques pour l'itération choisie.\n";
     } else {
@@ -204,33 +212,5 @@ void JeuDeLaVie::testerEtatAvecFichier(const std::string& fichierEtat, const std
     }
 }
 
-
-void JeuDeLaVie::sauvegarderEtatDansVector(std::vector<std::vector<bool>>& etatGrille) {
-    int lignes = grille.getLignes();
-    int colonnes = grille.getColonnes();
-
-    etatGrille.resize(lignes, std::vector<bool>(colonnes));
-    for (int i = 0; i < lignes; ++i) {
-        for (int j = 0; j < colonnes; ++j) {
-            etatGrille[i][j] = grille.getCellule(i, j).estVivante();
-        }
-    }
-}
-bool JeuDeLaVie::comparerGrilles(const std::vector<std::vector<bool>>& grille1, const std::vector<std::vector<bool>>& grille2) {
-    if (grille1.size() != grille2.size() || grille1[0].size() != grille2[0].size()) {
-        std::cerr << "Erreur : Les dimensions des grilles ne correspondent pas.\n";
-        return false;
-    }
-
-    for (size_t i = 0; i < grille1.size(); ++i) {
-        for (size_t j = 0; j < grille1[i].size(); ++j) {
-            if (grille1[i][j] != grille2[i][j]) {
-                std::cout << "Différence détectée à la cellule (" << i << ", " << j << ").\n";
-                return false;
-            }
-        }
-    }
-    return true;
-}
 
 
