@@ -53,7 +53,7 @@ int main() {
         // Lance l'exécution en mode console
         std::cout << "Simulation en mode console pour " << iterMax << " itérations maximum.\n";
         jeu.executer(); // Exécute le jeu et génère les fichiers de sortie
-        std::cout << "Simulation terminée après " << iterMax << " itérations ou stabilisation.\n";
+        std::cout << "Simulation terminée après " << iterMax << " itérations\n";
 
         // Comparaison facultative
         std::cout << "Voulez-vous comparer une itération spécifique avec un fichier de référence ? (1 = Oui, 0 = Non) : ";
