@@ -19,9 +19,7 @@ public:
     void sauvegarderEtat(const std::string& cheminFichier, int iteration); // Nouvelle méthode
     Grille& getGrille();
     bool chargerEtatDepuisFichier(const std::string& cheminFichier, std::vector<std::vector<bool>>& etatGrille);
-    void testerEtatAvecFichier(const std::string& fichierEtat, const std::string& fichierReference);    
-    void sauvegarderEtatDansVector(std::vector<std::vector<bool>>& etatGrille);
-    bool comparerGrilles(const std::vector<std::vector<bool>>& grille1, const std::vector<std::vector<bool>>& grille2);
+    void testerEtatAvecFichier(const std::string& fichierEtat, const std::string& fichierReference); 
 };
 
 #endif
