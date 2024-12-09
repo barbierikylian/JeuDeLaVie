@@ -8,7 +8,7 @@
 extern std::string cheminFichier;
 
 // Constructeur : initialise le graphique avec une référence au jeu
-Graphique::Graphique(JeuDeLaVie& jeu) : jeu(jeu) {}
+Graphique::Graphique(JeuDeLaVie& jeu, int maxIterations) : jeu(jeu), maxIterations(maxIterations) {}
 
 // Charge l'état initial du jeu à partir d'un fichier et affiche le résultat
 bool Graphique::chargerEtatInitial(const std::string& cheminFichier) {
@@ -103,6 +103,11 @@ void Graphique::lancer() {
             jeu.getGrille().actualiserEtats(); // Mettre à jour les états actuels
             iteration++; // Incrémenter le compteur d'itérations
         }
+        // Condition d'arrêt lorsque le nombre maximal d'itérations est atteint
+            if (iteration >= maxIterations + 1) {
+                std::cout << "Simulation terminée après " << maxIterations << " itérations.\n";
+                break; // Quitte la boucle
+            }
 
         // Pause entre chaque étape de simulation (en fonction du délai)
         std::this_thread::sleep_for(std::chrono::milliseconds(delai));

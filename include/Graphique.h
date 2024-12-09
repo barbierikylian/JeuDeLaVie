@@ -8,11 +8,11 @@
 class Graphique {
 private:
     JeuDeLaVie& jeu;
-
+    int maxIterations;
     void afficherGrille(sf::RenderWindow& fenetre, int tailleCellule);
 
 public:
-    Graphique(JeuDeLaVie& jeu);
+    Graphique(JeuDeLaVie& jeu, int maxIterations);
     bool chargerEtatInitial(const std::string& cheminFichier);
     void lancer();
 };

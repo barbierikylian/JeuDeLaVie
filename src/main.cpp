@@ -100,7 +100,7 @@ int main() {
 
         // Crée une instance du jeu en mode graphique
         JeuDeLaVie jeu(lignes, colonnes, iterMax);
-        Graphique graphique(jeu);
+        Graphique graphique(jeu, iterMax);
 
         // Charge l'état initial
         if (!graphique.chargerEtatInitial(cheminFichier)) {
