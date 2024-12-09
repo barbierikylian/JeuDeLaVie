@@ -82,15 +82,23 @@ int main() {
             std::string dossierEtats = "etat_iterations.txt_out/"; // Nom fixe pour le dossier d'états
             std::string fichierEtat = dossierEtats + "etat_" + std::to_string(iteration) + ".txt";
 
-
             // Effectue la comparaison
             jeu.testerEtatAvecFichier(fichierEtat, fichierReference);
         }
     }
     // Mode Graphique
     else if (choix == 2) {
+        // Demande le nombre d'itérations maximum pour le mode graphique
+        int iterMax;
+        std::cout << "Entrez le nombre maximum d'itérations pour le mode graphique : ";
+        std::cin >> iterMax;
+
+        if (iterMax <= 0) {
+            std::cerr << "Erreur : le nombre d'itérations doit être supérieur à 0.\n";
+            return 1;
+        }
+
         // Crée une instance du jeu en mode graphique
-        int iterMax = 100; // Une valeur par défaut pour le mode graphique
         JeuDeLaVie jeu(lignes, colonnes, iterMax);
         Graphique graphique(jeu);
 
